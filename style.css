@@ -1,0 +1,6 @@
+input:focus {
+    background-color: lightblue !important;
+}
+textarea:focus {
+    background-color: lightblue !important;
+}

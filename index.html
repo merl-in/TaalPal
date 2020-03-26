@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>TaalPal</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center"> <!-- title -->
+          <h1>TaalPal</h1>
+          Use <strong>TaalPal</strong> to keep a record of difficult words when learning a language. Remove a word previously added <a href="#" data-toggle="modal" data-target="#removeWordModal">here</a>.
+          <hr />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">  <!--word or phrase and language /add langugae-->
+          <div>
+            
+            <div class="form-group">
+              <label for="phrase">Word : </label>
+              <input type="text" class="form-control" name="phrase" id="phrase" aria-describedby="helpId" placeholder="Enter a word" autocomplete="off">
+              
+              <br />
+                
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <button class="btn btn-outline-info" type="button" data-toggle="modal" data-target="#modelId">+</button>
+                </div>
+                <select class="custom-select" id="langSelect" aria-label="Example select with button addon">
+                  <option selected>Choose language...</option>
+                  <!--<option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>-->
+                </select>
+              </div>
+              
+              
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-8">  <!-- definition and pronunciation -->
+          <div>
+            <div class="form-group">
+              <label for="definedAs">Definition : </label>
+              <textarea class="form-control" name="definedAs" id="definedAs" rows="3" placeholder="Enter a definition"></textarea>
+              <div class="form-group">
+                <label for="pronunciation">Pronunciation : </label>
+                <input type="text" class="form-control" name="pronunciation" id="pronunciation" aria-describedby="helpId" placeholder="Enter pronunciation">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12"><hr /> <!--horizontal line ? --></div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">  <!-- sentence example -->
+          <div>
+            
+            <div class="form-group">
+              <label for="sentence">Sentence example : </label>
+              <input type="text" class="form-control" name="sentence" id="sentence" aria-describedby="helpId" placeholder="Enter sentence example">
+              <small id="helpId" class="form-text text-muted">*How is it used?</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">  <!-- synonyms and associated words -->
+          <div class="row">
+            <div class="col">
+                <div class="form-group">
+                  <label for="synonyms">Synonyms : </label>
+                  <input type="text" class="form-control" name="synonyms" id="synonyms" aria-describedby="helpId" placeholder="Enter synonyms">
+                  <small id="helpId" class="form-text text-muted">*Separate words with a ","</small>
+                </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="associated">Associated words : </label>
+                <input type="text" class="form-control" name=associated"" id="associated" aria-describedby="helpId" placeholder="Enter any words associated">
+                <small id="helpId" class="form-text text-muted">*Separate words with a ","</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col"> <!-- helpful phrase(s) or image to remember  -->
+          <div>
+            <div class="form-group">
+              <label for="phraseToRemem">Helpful phrase(s) to remember : </label>
+              <input type="text" class="form-control" name="phraseToRemem" id="phraseToRemem" aria-describedby="helpId" placeholder="Enter a phrase that would jog your memory">
+              <small id="helpId" class="form-text text-muted">*Think of a rhyme, a saying or idiom.</small>
+            </div>
+            
+          </div>
+        </div>
+        <div class="col">
+          <br />
+          <button id="addImage" type="button" class="btn btn-info">Add an image</button>
+          <br />
+          <small id="helpId" class="text-muted">*Not incorporated yet.</small>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12"> <!-- add to database button -->
+          <div><button type="button" name="addToDB" id="addToDB" class="btn btn-primary btn-lg btn-block">Add to database</button></div>
+        </div>
+      </div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Language Options</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="">Add a new Language : </label>
+          <input type="text" class="form-control" name="addToLang" id="addToLang" aria-describedby="helpId" placeholder="Enter a language">
+          <small id="warnEmpty" class="text-danger"></small>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="clearLang" type="button" class="btn btn-warning">Clear All</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button id="langAdd" type="button" class="btn btn-info">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="removeWordModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Word Options</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span class="wordClose" aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="delThisWord">Which word would you like to remove?</label><small id="helpId" class="form-text text-muted">*Case sensitive</small>
+          <input type="text" class="form-control" name="delThisWord" id="delThisWord" aria-describedby="helpId" placeholder="Enter word to delete">
+          <small id="removed" class="text-danger"></small>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="delAllWords" type="button" class="btn btn-warning">Delete All</button>
+        <button type="button" class="btn btn-secondary wordClose" data-dismiss="modal">Cancel</button>
+        <button id="delWord" type="button" class="btn btn-primary">Remove</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    </div>
+
+
+    <script src="script.js"></script>  
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
